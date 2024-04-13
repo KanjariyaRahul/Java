@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 class NumberToWords {
     String[] units = {"", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN",
