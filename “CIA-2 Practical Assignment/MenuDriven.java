@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 class First {
 
@@ -66,42 +66,44 @@ class First {
     }
     
     void writeToFile() {
-        try {
            Scanner sc=new Scanner(System.in);
-            System.out.print("Enter the string you want to write to the file: ");
-            String write = sc.nextLine();
+         System.out.print("Enter File Name :-");
+ 		String name =sc.nextLine();
 
-            File file = new File("Myfile.txt");
-
-            System.out.println("-------------------------------------");
-
-            FileWriter fw = new FileWriter(file);
-
-            for (int i = 0; i < write.length(); i++)
-                fw.write(write.charAt(i));
+ 		 try{
+            FileWriter fw = new FileWriter(name);
+            System.err.print("Enter Content Which you enter in file :");
+            String data = sc.nextLine();
+            fw.write(data);
             fw.close();
-            System.out.println("Writing successful");
-            System.out.println("-------------------------------------");
-        } catch (IOException e) {
-            System.out.println("An error occurred while writing to the file: " + e.getMessage());
+            System.err.println("====================================================");
+            System.err.println("Write Content in file Successfully..");
+            System.err.println("====================================================");    
         }
+        catch(IOException e){
+            System.err.println(e);
+        }
+	}
 
-    }
     void readFromFile() {
-         try {
-            File file = new File("Myfile.txt");
+        Scanner sc=new Scanner(System.in);
+         System.out.print("Enter File Name :-");
+ 		String name =sc.nextLine();
 
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+ 		 try{
+            FileReader fw = new FileReader(name);
 
             System.out.println("-------------------------------------");
             System.out.println("Contents of the file:");
 
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
+           int i;
+                while((i=fw.read())!=-1)
+                {
+                    System.out.print((char)i);
+                }
+                System.out.println("\n");
 
-            reader.close();
+            fw.close();
             System.out.println("-------------------------------------");
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
