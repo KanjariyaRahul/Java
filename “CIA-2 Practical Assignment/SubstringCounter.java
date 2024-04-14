@@ -13,7 +13,7 @@ public class SubstringCounter  {
 
     
        
-        String words[] = mainString.split("\\s+");
+        String[] words = mainString.split(" ");
 
         int count = 0;
         for (String word : words) {
