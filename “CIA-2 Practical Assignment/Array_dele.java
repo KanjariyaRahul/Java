@@ -16,28 +16,28 @@ class delete
         System.out.println("Enter the element to be deleted: ");
         int element = scanner.nextInt();
 
-        boolean found = false;
-        for (int i = 0; i < size; i++) {
-            if (array[i] == element) {
-                for (int j = i; j < size - 1; j++) {
-                    array[j] = array[j + 1];
-                }
-                found = true;
-                size--; // Decrease array size after deletion
-                break;
-            }
+       for (int i = 0; i < size; i++) {
+             if (array[i] == element) {
+        // Shift elements to the left
+        for (int j = i; j < size - 1; j++) {
+            array[j] = array[j + 1];
         }
+        size--; // Decrease array size after deletion
 
-        if (found) {
-            System.out.println("Array after deletion: ");
-            System.out.print("=============================");
-            for (int i = 0; i < size; i++) {
-                System.out.print(array[i] + " ");
-            }
-            System.out.print("=============================");
-        } else {
-            System.out.println("Element not found");
+        // Print the updated array
+        System.out.println("Array after deletion: ");
+        System.out.println("=============================");
+        for (int k = 0; k < size; k++) {
+            System.out.print(array[k] + " ");
         }
+        System.out.println("=============================");
+        return; // Exit the loop after deletion
+    }
+}
+
+// If element is not found
+System.out.println("Element not found");
+
     }
 }
 class Array_dele
